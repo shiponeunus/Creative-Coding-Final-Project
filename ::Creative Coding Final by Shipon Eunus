@@ -1,164 +1,132 @@
 //Creative Coding Final by Shipon Eunus
-let Xintro;
-let X;
-let gears;
-let logo;
-let logodark; 
-let logocolor1;
-let logocolor2;
-let gearscolor1;
-let gearscolor2;
-let gearscolor3;
-let yinyangyen;
-let sliderGroup = [];
-let C;
-let Y;
-let Z;
-let centerX;
-let centerY;
-let centerZ;
-let h = 20;
-let time;
-let time2; 
 
+let spacegreenpurple; 
+let angel;
+let beam;
+let four;
+let theta=0;
+let time;
+let mcq;
+let surroundvsion;
+let seven;
+let portal;
+let five;
+let one;
+let eight; 
+let angel1;
+let angel2;
 function preload() {
-  helveticaboldoblique = loadFont('Helvetica_CE_Bold_Oblique.otf');
-	KilnSansSpiked= loadFont('KilnSansSpiked.otf');
-	gears = loadImage('GEARHAMMERV3.png');
-	gearscolor1 = loadImage('GEARHAMMERCOLOR1.png');
-	gearscolor2 = loadImage('GEARHAMMERCOLOR2.png');
-	gearscolor3 = loadImage('GEARHAMMERCOLOR3.png');
-	logo = loadImage('CVLMAINLOGO.png');
-	logodark = loadImage('CVLMAINLOGOINVERSE.png');
-	logocolor1 = loadImage('CVLLOGOcolor4.png');
-	logocolor2 = loadImage('CVLLOGOcolor3.png');
-	yinyangyen = loadImage('yinyangyen.png');
-	
+spacegreenpurp = loadImage('spacegreenpurple.png');
+angel = loadImage('angelpinkbluegreenchrome.png');
+beam = loadImage('BEAMOG.png');
+	four = loadImage('yinyangyen.png');
+mcq = loadImage('Poster7.png');
+	surroundvision = loadImage('surroundvsionV1.png');
+	seven = loadImage('7concreteredwirfeame.png');
+	portal= loadImage('portal.jpg');
+	five = loadImage('CVLBAUHAUS3d.png');
+	one = loadImage('Building1.png');
+	eight = loadImage('eightbuilding.png');
+	angel2 = loadImage('angelpinkbluegreenchromeleft.png');
 }
 
 function setup() {
 	createCanvas(windowWidth,windowHeight, WEBGL);
 	background(0);
 	imageMode(CENTER);
-Xintro = createVideo(['Xintro.mp4']);
-	Xintro.hide();
-	//	
-//  button = createButton('play');
-//  button.mousePressed(toggleVid); // attach button listener	 
-//X = loadSound('X.mp3');
-	
+  angel1 = new Angel();
 }
 
 function draw() {
-  time = millis();   //starts counting time
-  time2 = time/1000;//variable for seconds based on millis
 
+//onearth();  
+//on earth going up while ominous shit play
+//end of ominous shit and it go on the beam transition
 
-	if(time2 >=0 && time2<10){  //starts playing first video for guitar solo
-		image(Xintro, 20, 20)
-	Xintro.loop();
-}							
-															//clip of The Cure singing on stage
+inspace();
+angel1.display();
+angel1.update();
+angel1.limits();
+//transition going up stairway at gates
+// when choir sing gate appears 7v2 and it swallow screen 
+// then go through different artworks make them hav depth
 
-	if( time2 >= 10 && time2<16){ // opening credits shown during electronic part
-	openingcredits();
-	} 
-	else if ( time2 >=17 && time2 < 23){     //creates a Akira film inspired bike with 3d car logo with rotating graphic 
-	electronic();
-	 }
-	else if ( time2 >= 24 && time2 < 31){ // going down a pit using camera from play library in a spiral on a spaceship 
-		spiral();
-	}
-	else if(time2>=32 && time2<49){
-//	scene()
-	if(mouseX >= windowWidth/2){
-  camera(windowWidth, windowHeight, mouseX,windowWidth/2 , windowHeight/2, width/2, 0, 1, 0);}
-	else if(mouseX< windowWidth){
-	  camera(windowWidth, windowHeight, -mouseX,windowWidth/2 , windowHeight/2, width/2, 0, 1, 0);}
-	image(yinyangyen, 0, 0, 500, 500); }
-
-
- // fill(255, 102, 94);
- // box(85); 
-	//} 
-	//else{
-	//	background(0);}
-																						//a beam appears from the sky with angels coming out of it
-	                                         // the beam goes up then it goes to computer camera where class room is shown and color is
-	                                         //created with generative design with angel flying arounf stay during guitar electro pop sound 
-	                                          // bring serene graphics 
+	
+	
 
 }
-function openingcredits(){
-	textSize(108);
-	textAlign(CENTER, BASELINE);
-	//fill(254,162,111);
-	//textFont(helveticaboldoblique);
-	//text('C(V)L', 0,0);
-	textFont(KilnSansSpiked);    //creates multiple text that rotates to creative a generative design, more typography effects
-//	rotateX(time / 1000);
+
+
+function onearth(){
+scale(0.65);
+image(angel, -500, 180);
+scale(0.14);
+image(beam,6000, -5000);
+}
+
+function inspace(){
+time = millis();
+	image(spacegreenpurp, 0, 0 , windowWidth, windowHeight);
+push();
+	scale(0.12, 0.17);
+	image(beam,0, 0);
+pop();
+push();
+scale(0.13);
+image(five, -30,-400);
+pop();
 	push();
-	rotateX(time/600);
-	rotateY(time/500);
-	fill(168,0,255);
-	text('C(V)L', 20,20); 
+  rotateX(time/550);
+	rotateZ(time/550);
+	texture(portal);
+	 translate(220, -100, -100); //rotates translations
+	sphere(100);
+  pop();
+push();
+	rotateZ(time/550);
+	scale(0.15);
+image(seven, 1500, -1300);
 	pop();
-	rotateZ(time/1000);
-	fill(68,100,55);
-	text('C(V)L', 20,20); 
-	
-	
-}
-function electronic(){
-	rotateX(time/650);
-	image(gearscolor3, 0, 0, 500, 500);
-	rotateX(time/650);
-	image(gears, 0,0, 500,500);
 
-	rotateZ(time/500);
-	image(logodark, 0,0, 170,170);
-	rotateY(time/250);
-	image(logocolor1, 0,0, 170,170);
-	rotateY(time/500);
-	image(logocolor2, 0,0, 170,170); 
+	push();
+	rotateY(time/400);
+rotateX(time/900);
+scale(0.2);
+image(one, 2000, -1000);	
+pop();
+push();
+	rotateX(time/800);
+	rotateZ(time/450);
+	scale(0.16);
+  image(eight,0,-1000);
+	pop();
+scale(0.45);
 }
-function spiral(){
-	rotateX(time/500);										//interactive environment maybe things change as controlled to 
-	rotateZ(time/400);
-	rotateY(time/1000);
-	image(yinyangyen, 0, 0, 200, 200);
-}
-
-function scene() {
- //background(60); // if you get rid of this, object becomes more generative
-  // assigning sliders' value to each parameters
-	//how can I control slider with keys
-	//this code creates sliders to control camera
-	  	for( var i= 0; i<6; i++){
-    if (i === 2) {
-      sliderGroup[i] = createSlider(10, 400, 200);
-    } else {
-      sliderGroup[i] = createSlider(-400, 400, 0);
+class Angel{
+	constructor(){
+	  this.position = createVector(0,0);
+    this.velocity = createVector();
+    this.acceleration = createVector();
+    this.topspeed = 5;
+	}
+	update(){
+		  var mouse = createVector(0,-1000);
+			this.acceleration = p5.Vector.sub(mouse, this.position);
+		  //this.topspeed = 10;
+		//	this.acceleration.setMag(0.4); 
+		//	this.acceleration.mult(random(2));	
+		
+	this.velocity.add(this.acceleration);
+		this.velocity.limit(this.topspeed);
+    this.position.add(this.velocity);	
+	}
+	display(){
+		rotateZ(time/900);
+	image(angel, this.position.x, this.position.y);
+	}
+	limits(){
+      if (this.position.y > windowHeight) {
+     
     }
-    h = map(i, 0, 6, 5, 85);
-    sliderGroup[i].position(10, windowHeight/2 + h);
-    sliderGroup[i].style('width', '80px');
-  }
 }
-
-function vidLoad() { //loads video
-  Xintro.volume(0.1);
-	Xintro.size(windowWidth/2,windowHeight/2);
-} 
-
-/*starts and plays tracks on click
-function mousePressed() {
-  if (X.isPlaying()) {
-    // .isPlaying() returns a boolean
-    X.stop();
-   // background(255, 0, 0);
-  } else {
-    X.play();
-   // background(0, 255, 0);
-  }
-} */
+}
