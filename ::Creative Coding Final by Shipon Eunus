@@ -20,6 +20,7 @@ let angel3;
 let angel6;
 let angel7;
 let room;
+let time2;
 function preload() {
 spacegreenpurp = loadImage('spacegreenpurple.png');
 angel = loadImage('angelpinkbluegreenchrome.png');
@@ -53,32 +54,42 @@ function setup() {
 function draw() {
 //need to set up timing and figure out how to get one function to end when the next starts
 //initial view of beam; need to do photography 
-//onearth();  
+time = millis();
+time2 = time/1000;
+if (time2 >0 && time2 <= 10){
+onearth();  }
 //on earth following beam while ominous part play; need to photography
 
+else if(time2 >10 && time2 <= 20){
 //ominous to ending angel goes up
-//inspace();
+inspace();}
 
 //end of ominous part and it go on the beam transition
 //transition going up stairway at gates; need to finish drawing steps
 //need to picture of self in room and goes up picked up on angel
+else if(time2 >20 && time2 <= 30){
 cameo();
-
+}
+else if(time2 >30 && time2 <= 40){
 // when choir sing,interactive angels start rotating with user interaction
-//	gates();
+	gates();}
 //when choir going skitz gate appears and it gets bigger; need to write this part of code
 	
 // then go through different artworks make them hav depth; need to write this part of code
 	
 }
 function cameo(){
-scale(1.15);
+
+	scale(1.15);
 	image(room,0,0);
+
 	scale(0.14);
-image(beam,300,0);
-	scale(4.5);
+ image(beam,300,0);
+
+		scale(4.5);
 	angel1.display();
 	angel1.update();
+
 }
 function gates(){
 	push();
@@ -107,7 +118,7 @@ image(beam,3600, -5000);
 }
 
 function inspace(){
-time = millis();
+//time = millis();
 	image(spacegreenpurp, 0, 0 , windowWidth, windowHeight);
 push();
 	scale(0.12, 0.17);
