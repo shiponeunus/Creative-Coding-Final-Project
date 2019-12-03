@@ -56,23 +56,24 @@ function draw() {
 //initial view of beam; need to do photography 
 time = millis();
 time2 = time/1000;
-if (time2 >0 && time2 <= 10){
-onearth();  }
+//if (time2 >0 && time2 <= 10){
+//onearth();  }
 //on earth following beam while ominous part play; need to photography
 
-else if(time2 >10 && time2 <= 20){
+//else if(time2 >10 && time2 <= 20){
 //ominous to ending angel goes up
-inspace();}
+//inspace();}
 
 //end of ominous part and it go on the beam transition
 //transition going up stairway at gates; need to finish drawing steps
 //need to picture of self in room and goes up picked up on angel
-else if(time2 >20 && time2 <= 30){
-cameo();
-}
-else if(time2 >30 && time2 <= 40){
+//else if(time2 >20 && time2 <= 30){
+//cameo();
+//}
+//else if(time2 >30 && time2 <= 40){
 // when choir sing,interactive angels start rotating with user interaction
-	gates();}
+	gates();
+//}
 //when choir going skitz gate appears and it gets bigger; need to write this part of code
 	
 // then go through different artworks make them hav depth; need to write this part of code
@@ -97,11 +98,37 @@ function gates(){
 	image(gate, 0, 0);
 	pop();
 	push();
+	if(mouseX <= windowHeight/2){
 	scale(0.21);
 	translate(-180, -150);
 	image(six,0,0);
+	}
+	if(mouseX > windowHeight/2 && mouseX < windowHeight/2 +200){
+	scale(0.3)
+	translate(-180, -150);
+	image(six,0,0); }
+	if(mouseX > windowHeight/2 +200 && mouseX < windowHeight/2 +500){
+	scale(0.35)
+	translate(-180, -150);
+	image(six,0,0); }
+	if(mouseX > windowHeight/2 +500 && mouseX < windowHeight/2 +1000){
+	scale(0.45)
+	translate(-180, -150);
+	image(six,0,0); }
+		if(mouseX > windowHeight/2 +1000 && mouseX < windowHeight/2 +1200){
+	scale(0.55)
+	translate(-180, -150);
+	image(six,0,0); }
+			if(mouseX > windowHeight/2 +1200 && mouseX < windowHeight/2+1500){
+	scale(0.95)
+	translate(-130, -150);
+	image(six,0,0); }
+	if(mouseX > windowHeight/2 +1500 && mouseX < windowHeight){
+	scale(10)
+	translate(-180, -150);
+	image(six,0,0); }
 	pop();
-	rotateZ(mouseX/88);
+	rotateZ(mouseY/88);
   angel1.display2();
 }
 //plays song when mouse pressed; need to figure out how to get it to play automatically
@@ -196,7 +223,7 @@ class Angel{
   display2(){
 	//creates new set of angels used during gates function
 	translate(-90,0);
-	scale(0.38);
+	scale(0.4);
 	push();
 	rotate(-160);
 	image(angel3,1000 ,-100);
