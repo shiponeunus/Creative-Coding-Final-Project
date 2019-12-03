@@ -1,5 +1,4 @@
 //Creative Coding Final by Shipon Eunus
-
 let spacegreenpurple; 
 let angel;
 let beam;
@@ -15,6 +14,11 @@ let one;
 let eight; 
 let angel1;
 let angel2;
+let song;
+let gate;
+let angel3;
+let angel6;
+let angel7;
 function preload() {
 spacegreenpurp = loadImage('spacegreenpurple.png');
 angel = loadImage('angelpinkbluegreenchrome.png');
@@ -22,12 +26,18 @@ beam = loadImage('BEAMOG.png');
 	four = loadImage('yinyangyen.png');
 mcq = loadImage('Poster7.png');
 	surroundvision = loadImage('surroundvsionV1.png');
+	six =loadImage('7paradise.png');
 	seven = loadImage('7concreteredwirfeame.png');
 	portal= loadImage('portal.jpg');
 	five = loadImage('CVLBAUHAUS3d.png');
 	one = loadImage('Building1.png');
 	eight = loadImage('eightbuilding.png');
 	angel2 = loadImage('angelpinkbluegreenchromeleft.png');
+	song = loadSound('NeonBlack.mp3');
+	gate = loadImage('heavengate.jpg');
+	angel3 = loadImage('angelpink_bluechromev13d.png');
+	angel6 = loadImage('angel6.png');
+	angel7 = loadImage('angel7.png');
 }
 
 function setup() {
@@ -35,6 +45,7 @@ function setup() {
 	background(0);
 	imageMode(CENTER);
   angel1 = new Angel();
+
 }
 
 function draw() {
@@ -42,20 +53,33 @@ function draw() {
 //onearth();  
 //on earth going up while ominous shit play
 //end of ominous shit and it go on the beam transition
+	
+//inspace();
 
-inspace();
-angel1.display();
-angel1.update();
-angel1.limits();
+gates();
 //transition going up stairway at gates
+// function
+
 // when choir sing gate appears 7v2 and it swallow screen 
 // then go through different artworks make them hav depth
-
-	
-	
-
 }
-
+function gates(){
+	push();
+	scale(0.85, 0.4);
+	image(gate, 0, 0);
+	pop();
+	push();
+	scale(0.21);
+	translate(-180, -150);
+	image(six,0,0);
+	pop();
+	rotateZ(mouseX/88);
+  angel1.display2();
+}
+function mousePressed(){
+	song.setVolume(9);
+	song.play();
+}
 
 function onearth(){
 scale(0.65);
@@ -100,11 +124,19 @@ push();
 	scale(0.16);
   image(eight,0,-1000);
 	pop();
+	push();
 scale(0.45);
+angel1.display();
+angel1.update();
+	pop();
 }
+function stairway(){
+	
+}
+
 class Angel{
 	constructor(){
-	  this.position = createVector(0,0);
+	  this.position = createVector(30,windowHeight);
     this.velocity = createVector();
     this.acceleration = createVector();
     this.topspeed = 5;
@@ -120,13 +152,28 @@ class Angel{
 		this.velocity.limit(this.topspeed);
     this.position.add(this.velocity);	
 	}
+	update2(){
+		var mouse = createVector(1000,0);
+		this.acceleration = p5.Vector.sub(mouse, this.position);
+		this.velocity.add(this.acceleration);
+		this.velocity.limit(this.topspeed);
+    this.position.add(this.velocity);
+	}
 	display(){
-		rotateZ(time/900);
 	image(angel, this.position.x, this.position.y);
 	}
-	limits(){
-      if (this.position.y > windowHeight) {
-     
-    }
+  display2(){
+	
+	translate(-90,0);
+	scale(0.38);
+	push();
+	rotate(-160);
+	image(angel3,1000 ,-100);
+	pop();
+	push();
+	rotate(85);
+	image(angel6,-400,700);
+	pop();
+	image(angel7,500,600);
 }
 }
