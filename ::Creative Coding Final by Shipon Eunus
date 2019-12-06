@@ -21,6 +21,8 @@ let angel6;
 let angel7;
 let room;
 let time2;
+let floatingrock;
+let building3;
 function preload() {
 spacegreenpurp = loadImage('spacegreenpurple.png');
 angel = loadImage('angelpinkbluegreenchrome.png');
@@ -41,6 +43,12 @@ mcq = loadImage('Poster7.png');
 	angel6 = loadImage('angel6.png');
 	angel7 = loadImage('angel7.png');
 	room = loadImage('MASTERPIECEV1.png');
+	heatmap = loadImage('natureheatmap.png');
+	natureog = loadImage('NATUREOG.png');
+	mountain = loadImage('MOUNTAINCVL.jpg')
+	floatingrock = loadImage('floatingrock3d1.png');
+	building2 = loadImage('building2.png');
+	building3 = loadImage('CvlPalacev1.png');
 }
 
 function setup() {
@@ -48,7 +56,8 @@ function setup() {
 	background(0);
 	imageMode(CENTER);
   angel1 = new Angel();
-
+  song.setVolume(9);
+	song.play();
 }
 
 function draw() {
@@ -56,11 +65,30 @@ function draw() {
 //initial view of beam; need to do photography 
 time = millis();
 time2 = time/1000;
-//if (time2 >0 && time2 <= 10){
-//onearth();  }
+//inspace();
+gates();	
+/*if (time2 >0 && time2 <= 3){
+onearth();  }
 //on earth following beam while ominous part play; need to photography
 
-//else if(time2 >10 && time2 <= 20){
+else if(time2 >3 && time2 <= 14){
+
+}
+else if(time2 >14 && time2 <= 36){
+inspace();
+}
+else if(time2 >36 && time2 <= 41){
+cameo();
+}
+else if(time2 >41 && time2 <= 45){
+gates();
+}
+else if(time2 >41 && time2 <= 45){
+
+}
+else if(time2 >45 && time2 <= 88){
+
+}	
 //ominous to ending angel goes up
 //inspace();}
 
@@ -71,14 +99,21 @@ time2 = time/1000;
 //cameo();
 //}
 //else if(time2 >30 && time2 <= 40){
-// when choir sing,interactive angels start rotating with user interaction
-	gates();
+// when choir sing,interactive angels start rotating with user interaction*/
+//	gates();
 //}
 //when choir going skitz gate appears and it gets bigger; need to write this part of code
 	
 // then go through different artworks make them hav depth; need to write this part of code
 	
 }
+function heaven(){
+	image(heatmap, 0,0);
+	image(natureog,0,0);
+	image(mountain,0,0);
+	
+}
+
 function cameo(){
 
 	scale(1.15);
@@ -97,46 +132,16 @@ function gates(){
 	scale(0.85, 0.4);
 	image(gate, 0, 0);
 	pop();
-	push();
-	if(mouseX <= windowHeight/2){
-	scale(0.21);
-	translate(-180, -150);
-	image(six,0,0);
-	}
-	if(mouseX > windowHeight/2 && mouseX < windowHeight/2 +200){
-	scale(0.3)
-	translate(-180, -150);
-	image(six,0,0); }
-	if(mouseX > windowHeight/2 +200 && mouseX < windowHeight/2 +500){
-	scale(0.35)
-	translate(-180, -150);
-	image(six,0,0); }
-	if(mouseX > windowHeight/2 +500 && mouseX < windowHeight/2 +1000){
-	scale(0.45)
-	translate(-180, -150);
-	image(six,0,0); }
-		if(mouseX > windowHeight/2 +1000 && mouseX < windowHeight/2 +1200){
-	scale(0.55)
-	translate(-180, -150);
-	image(six,0,0); }
-			if(mouseX > windowHeight/2 +1200 && mouseX < windowHeight/2+1500){
-	scale(0.95)
-	translate(-130, -150);
-	image(six,0,0); }
-	if(mouseX > windowHeight/2 +1500 && mouseX < windowHeight){
-	scale(10)
-	translate(-180, -150);
-	image(six,0,0); }
-	pop();
-	rotateZ(mouseY/88);
-  angel1.display2();
-}
-//plays song when mouse pressed; need to figure out how to get it to play automatically
-function mousePressed(){
-	song.setVolume(9);
-	song.play();
-}
 
+	push();
+	scale(0.21 + time2/10);
+	//translate(-150, -150);
+	image(six,0,0);
+	pop();
+	rotateZ(time/300);
+  angel1.display2();
+	
+}
 function onearth(){
 scale(0.65);
 image(angel, -500, 180);
@@ -152,9 +157,21 @@ push();
 	image(beam,0, 0);
 pop();
 //creation of planets and their motions
+	push();
+	scale(0.2);
+image(floatingrock, 0,320);
+	pop();
+	push();
+	scale(0.45);
+	image(building2, 350, -190);
+	pop();
+push();
+	scale(0.1);
+	image(building3, -1380, -790);
+pop();
 push();
 scale(0.13);
-image(five, -30,-400);
+image(five, -30,-800);
 pop();
 	push();
   rotateX(time/550);
@@ -223,7 +240,7 @@ class Angel{
   display2(){
 	//creates new set of angels used during gates function
 	translate(-90,0);
-	scale(0.4);
+	scale(0.45);
 	push();
 	rotate(-160);
 	image(angel3,1000 ,-100);
