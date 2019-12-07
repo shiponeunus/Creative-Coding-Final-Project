@@ -125,6 +125,12 @@ else if(time2 >45 && time2 <= 88){
 function sky(){
 //scale(0.);
 image(midsky, 0,0);
+push();
+	scale(0.25, 0.17);
+	image(beam,0, 0);
+pop();
+angel1.display();
+angel1.update();
 }
 function onearth(){
 push();
