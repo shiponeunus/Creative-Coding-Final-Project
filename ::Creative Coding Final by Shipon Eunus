@@ -79,13 +79,14 @@ function draw() {
 //initial view of beam; need to do photography 
 time = millis();
 time2 = time/1000;
-onearth();
+//onearth();
 //	sky();
 	//inspace();
+//	cameo();
 //gates();	
 //	heaven();
-//	credit();
-// heaven2();	
+	credit();
+
 	
 /*if (time2 >0 && time2 <= 3){
 onearth();  }
@@ -139,26 +140,33 @@ else if(time2 >45 && time2 <= 88){
 	
 }
 function credit(){
-	/*push();
-	rotateX(time/ 1400);
+	push();
+	rotateY(time2/15);
 	textFont(helvetica);
-	textSize(96);
-  text('C(V)L', 10, 30);
-	pop();*/
+	textSize(36);
+  text('Director', -400, -100);
+	text('Screenwriter', -400, -50);
+	text('Producer', -400, 0);
+	text('Reference Curator', -400, 50);
+	text('Soundscape Designer', -400, 100);
+	text('Photographer', -400,150);
+	text('Graphic Designer', -400, 200);
+	pop();
 	
 	/*push();
 	rotateY(time/1300);
 	textFont(spiked);
 	textSize(108);
   text('Shipon Eunus', 10, 30);
-	pop();*/
+	pop();
+	
 	push();
 	textFont(spiked);
 	fill( 205,63,3);
 	textAlign(CENTER, TOP);
 	textSize(116);
   text('Shipon Eunus', 10, 30);
-	pop();
+	pop();*/
 }
 function sky(){
 image(midsky, 0,0);
@@ -212,18 +220,23 @@ function cameo(){
 }
 function gates(){
 	push();
+	scale(0.5+time2/20);
 	scale(0.85, 0.4);
 	image(gate, 0, 0);
 	pop();
 
 	push();
-	scale(0.21 + time2/10);
+	scale(0.01 + time2/23);
 	//translate(-150, -150);
 	image(six,0,0);
 	pop();
-	rotateZ(time/300);
+	scale(0.85);
+	image(angel, 0,0)
+	push();
+	rotateZ(time/450);
   angel1.display2();
-	
+	pop();
+	angel1.display();
 }
 
 
