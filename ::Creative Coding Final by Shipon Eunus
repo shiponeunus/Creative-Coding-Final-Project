@@ -79,12 +79,12 @@ function draw() {
 //initial view of beam; need to do photography 
 time = millis();
 time2 = time/1000;
-//onearth();
+onearth();
 //	sky();
 	//inspace();
 //gates();	
 //	heaven();
-	credit();
+//	credit();
 // heaven2();	
 	
 /*if (time2 >0 && time2 <= 3){
@@ -161,7 +161,6 @@ function credit(){
 	pop();
 }
 function sky(){
-//scale(0.);
 image(midsky, 0,0);
 push();
 	scale(0.25, 0.17);
@@ -172,29 +171,23 @@ angel1.update();
 }
 function onearth(){
 push();
-
 scale(0.26, 0.2);
 image(hudson1, 0,0);	
 pop();
-	push();
-let dx = mouseX - windowWidth / 2 - offset
+push();
+let movement = random(-windowWidth, windowWidth);
+let dx = movement - windowWidth / 2 - offset
 offset += dx * easing;
 tint(255, 100);
 scale(0.36, 0.2);
 image(hudson1, offset, 0)	
-	
-//image(hudson2, 0,0);
-pop();
-	push();
-	
-scale(0.45);
-image(angel, -800,-200);
 pop();
 	push();
 scale(0.5,0.7);
 image(beam2,1280, -261);
 	pop();
-	
+	angel1.display3();
+angel1.update3();
 }
 function heaven(){
 image(beach, 420, 150);
@@ -294,9 +287,10 @@ angel1.update();
 class Angel{
 	constructor(){
 	  this.position = createVector(30,windowHeight);
+		this.position2 = createVector(30,-50);
     this.velocity = createVector();
     this.acceleration = createVector();
-    this.topspeed = 5;
+    this.topspeed = 6;
 	}
 	update(){
 		  var mouse = createVector(0,-1000);
@@ -316,6 +310,14 @@ class Angel{
 		this.velocity.limit(this.topspeed);
     this.position.add(this.velocity);
 	}
+		update3(){
+		var mouse = createVector(windowWidth+300,-1000);
+	
+		this.acceleration = p5.Vector.sub(mouse, this.position2);
+		this.velocity.add(this.acceleration);
+		this.velocity.limit(this.topspeed);
+    this.position2.add(this.velocity);
+	}
 	display(){
 	image(angel, this.position.x, this.position.y);
 	}
@@ -333,4 +335,9 @@ class Angel{
 	pop();
 	image(angel7,500,600);
 }
+	display3(){
+
+		scale(0.45);
+		image(angel,this.position2.x ,this.position2.y);
+	}
 }
