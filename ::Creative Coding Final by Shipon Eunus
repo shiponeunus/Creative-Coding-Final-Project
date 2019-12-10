@@ -358,24 +358,31 @@ function credit(){
 
 // creates angel and movement 
 class Angel{
+  /creates variables for object
 	constructor(){
+	//sets original position
 	  this.position = createVector(30,windowHeight);
+	 //creates another position
 		this.position2 = createVector(30,-50);
+	//creates velocity vector
     this.velocity = createVector();
+    //creates acceleration vector
     this.acceleration = createVector();
+    // speed limit
     this.topspeed = 6;
 	}
+	// creates one type of movement by uodating position with veocity and acceleration and maintaining topspeed
 	update(){
+	  // destination vector
 		  var mouse = createVector(0,-1000);
+		  /creates acceleration between position and desired location
 			this.acceleration = p5.Vector.sub(mouse, this.position);
-		  //this.topspeed = 10;
-		//	this.acceleration.setMag(0.4); 
-		//	this.acceleration.mult(random(2));	
-		
+	// updates vectors	
 	this.velocity.add(this.acceleration);
 		this.velocity.limit(this.topspeed);
     this.position.add(this.velocity);	
 	}
+	//alternative movement
 	update2(){
 		var mouse = createVector(1000,0);
 		this.acceleration = p5.Vector.sub(mouse, this.position);
@@ -383,6 +390,7 @@ class Angel{
 		this.velocity.limit(this.topspeed);
     this.position.add(this.velocity);
 	}
+	//alternative movement
 		update3(){
 		this.topspeed = 8;
 		var mouse = createVector(windowWidth+300,-1000);
@@ -392,6 +400,7 @@ class Angel{
 		this.velocity.limit(this.topspeed);
     this.position2.add(this.velocity);
 	}
+	//alternative movement
 	update4(){
 		var mouse = createVector(0,0);
 	
@@ -400,9 +409,11 @@ class Angel{
 		this.velocity.limit(this.topspeed);
     this.position.add(this.velocity);
 	}	
+	//displays angel image
 	display(){
 	image(angel, this.position.x, this.position.y);
 	}
+	//creates 3 different angels that rotate around
   display2(){
 	//creates new set of angels used during gates function
 	translate(-90,0);
@@ -417,6 +428,7 @@ class Angel{
 	pop();
 	image(angel7,500,600);
 }
+//creates angel with alternate movement
 	display3(){
 		scale(0.45);
 		image(angel,this.position2.x ,this.position2.y);
