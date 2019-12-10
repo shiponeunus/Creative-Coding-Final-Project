@@ -106,6 +106,7 @@ let m = minute();
  //cameo();
  //gates();
  heaven(); 
+
 // credit();
 /*	
 // angel sees beam and goes toward it 
@@ -288,26 +289,29 @@ function gates(){
 }
 
 function heaven(){
-let r = random( 1000, 1500);
+let u = random( 2000, 3000);
+push();
+let o = random( 900, 1500);
+rotateY(time/o);	
+scale(2.2,1.5);
+image(mountain,150,0); 
+pop();
+	
+push();
+let y = random( 1700, 3000);	
+rotateX(time/y);	
+scale(1.8);
+image(heatmap, 0,0);
+pop(); 
 
 push();
-rotateZ(time/r);
+rotateZ(time/u);
 //	r = r = random( 200, 5000);
 scale(1.7);
 image(natureog,0,0);
 pop();
-/*
-push();
-rotateZ(time2/r);	
-scale(2.2,1.5);
-image(mountain,0,0); 
-pop();
-	
-push();
-rotateX(time2/r);	
-scale(1.8);
-image(heatmap, 0,0);
-pop(); */
+
+//image(angel, -300, 0);
 /*	
 push();
 rotateY(time/r);
@@ -315,7 +319,7 @@ translate( -100, 150);
 scale(2.5, 1.5);
 image(beach, 0,0);
 pop();*/
-image(angel, 100, 0);
+//image(angel, -1000, 0);
 
 
 }	
