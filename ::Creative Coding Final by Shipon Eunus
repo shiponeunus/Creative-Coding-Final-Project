@@ -30,6 +30,7 @@ let beam2;
 let offset = 0;
 let easing = 0.05;
 let midsky;
+let me;
 function preload() {
 spacegreenpurp = loadImage('spacegreenpurple.png');
 angel = loadImage('angelpinkbluegreenchrome.png');
@@ -63,6 +64,7 @@ mcq = loadImage('Poster7.png');
 	midsky = loadImage('midsky.png');
 	spiked = loadFont('KilnSansSpiked.otf');
 	helvetica = loadFont('Helvetica_CE_Bold_Oblique.otf');
+	me = loadImage('mebapekawskapitalnikeyeezy.png');
 }
 
 function setup() {
@@ -81,11 +83,11 @@ time = millis();
 time2 = time/1000;
 //onearth();
 //	sky();
-	//inspace();
+//	inspace();
 //	cameo();
 //gates();	
 //	heaven();
-	credit();
+//	credit();
 
 	
 /*if (time2 >0 && time2 <= 3){
@@ -198,6 +200,8 @@ image(beam2,1280, -261);
 angel1.update3();
 }
 function heaven(){
+
+angel1.display();
 image(beach, 420, 150);
 image(heatmap, -240,-200);
 image(natureog,-240,150);
@@ -206,17 +210,22 @@ image(mountain,380,-120);
 
 
 function cameo(){
-
+push();
 	scale(1.15);
 	image(room,0,0);
-
+pop();
+	push();
+	scale(0.2);
+	image(me, -900,-50);
+pop();
+	push();
 	scale(0.14);
  image(beam,300,0);
-
-		scale(4.5);
+pop();
+	push();
 	angel1.display();
 	angel1.update();
-
+pop();
 }
 function gates(){
 	push();
@@ -230,13 +239,12 @@ function gates(){
 	//translate(-150, -150);
 	image(six,0,0);
 	pop();
-	scale(0.85);
-	image(angel, 0,0)
 	push();
 	rotateZ(time/450);
   angel1.display2();
 	pop();
 	angel1.display();
+	angel1.update4();
 }
 
 
@@ -331,6 +339,14 @@ class Angel{
 		this.velocity.limit(this.topspeed);
     this.position2.add(this.velocity);
 	}
+	update4(){
+		var mouse = createVector(0,0);
+	
+		this.acceleration = p5.Vector.sub(mouse, this.position);
+		this.velocity.add(this.acceleration);
+		this.velocity.limit(this.topspeed);
+    this.position.add(this.velocity);
+	}	
 	display(){
 	image(angel, this.position.x, this.position.y);
 	}
@@ -349,7 +365,6 @@ class Angel{
 	image(angel7,500,600);
 }
 	display3(){
-
 		scale(0.45);
 		image(angel,this.position2.x ,this.position2.y);
 	}
