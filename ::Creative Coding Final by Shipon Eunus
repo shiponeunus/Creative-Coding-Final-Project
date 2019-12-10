@@ -99,6 +99,15 @@ time = millis();
 time2 = time/1000;
 let s = second();
 let m = minute();
+	
+ //onearth();
+// sky();
+ //inspace();
+ //cameo();
+ //gates();
+ heaven(); 
+// credit();
+/*	
 // angel sees beam and goes toward it 
 if(s >= 0 && s <15){
 push();
@@ -125,15 +134,16 @@ else if(s >= 41 && s<59){
 gates();	
 pop();}
 	// angel discovers and explores this new world
-else if(m >=1 && m< 1.25){
+else if(m >=0 && m< 2.25){
 	push();
 	heaven();
 pop();}
 	// credit scene
-else if(s >= 1.25 && s < 1.5){
+else if(m >= 2.25 && m < 2.5){
 	push();
 	credit();
 pop();}
+*/
 }
 
 function onearth(){
@@ -260,61 +270,54 @@ pop();
 function gates(){
 	//scale(0.9);
 	push();
-	scale(0.5+ time2/20);
+	scale(0.8+ time2/20);
 	scale(0.85, 0.4);
 	image(gate, 0, 0);
 	pop();
 
-	scale(0.5);
+	scale(0.7);
 	translate(-50, 0);
 	push();
 	scale(0.01 + time2/23);
 	image(six,0,0);
 	pop();
-
-	/*	
-	push();
-	rotateZ(time/450);
-  angel5.display2();
-/*	translate(-90,0);
-	scale(0.45);
-	push();
-	rotate(-160);
-	image(angel3,1000 ,-100);
-	pop();
-	push();
-	rotate(85);
-	image(angel6,-400,700);
-	pop();
-	image(angel7,500,600);
-	pop();
-	
 	push();
 	angel5.display();
 	angel5.update4();
-	pop(); */
+	pop(); 
 }
 
 function heaven(){
+let r = random( 1000, 1500);
+
 push();
+rotateZ(time/r);
+//	r = r = random( 200, 5000);
 scale(1.7);
 image(natureog,0,0);
 pop();
+/*
 push();
+rotateZ(time2/r);	
 scale(2.2,1.5);
 image(mountain,0,0); 
 pop();
-	push();
+	
+push();
+rotateX(time2/r);	
 scale(1.8);
 image(heatmap, 0,0);
-pop();
-	push();
+pop(); */
+/*	
+push();
+rotateY(time/r);
+translate( -100, 150);
 scale(2.5, 1.5);
 image(beach, 0,0);
-pop();
-push();
-angel6.display();
-	pop();
+pop();*/
+image(angel, 100, 0);
+
+
 }	
 
 function credit(){
