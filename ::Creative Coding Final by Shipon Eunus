@@ -289,29 +289,34 @@ function gates(){
 }
 
 function heaven(){
-let u = random( 2000, 3000);
-push();
-let o = random( 900, 1500);
-rotateY(time/o);	
-scale(2.2,1.5);
-image(mountain,150,0); 
-pop();
+
+
 	
 push();
-let y = random( 1700, 3000);	
-rotateX(time/y);	
+let y = random( 15, 30);	
+rotateZ(time2/y);	
 scale(1.8);
 image(heatmap, 0,0);
 pop(); 
 
 push();
+let o = random( 900, 1800);
+rotateZ(-time/o);	
+scale(2.2,1.5);
+image(mountain,150,0); 
+pop();
+	
+push();
+let u = random( 2000, 3000);
 rotateZ(time/u);
 //	r = r = random( 200, 5000);
 scale(1.7);
 image(natureog,0,0);
 pop();
-
-//image(angel, -300, 0);
+	
+push();
+image(angel, -300, 0);
+pop();
 /*	
 push();
 rotateY(time/r);
