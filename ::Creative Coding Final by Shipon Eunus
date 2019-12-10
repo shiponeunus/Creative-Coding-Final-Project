@@ -105,9 +105,9 @@ let m = minute();
  //inspace();
  //cameo();
  //gates();
- heaven(); 
+ //heaven(); 
 
-// credit();
+ credit();
 /*	
 // angel sees beam and goes toward it 
 if(s >= 0 && s <15){
@@ -345,28 +345,30 @@ function credit(){
 	// sets font
 	textFont(helvetica);
 	//sets text size
-	textSize(24);
+	textSize(36);
 	// text of different roles
-  text('Director', -200, -130);
-	text('Screenwriter', -200, -100);
-	text('Producer', -200, -70);
-	text('Reference Curator', -200, 0);
-	text('Soundscape Designer', -200, 70);
-	text('Photographer', -200,100);
-	text('Graphic Designer', -200, 130);
+  text('Director', -150, -160);
+	text('Screenwriter', -150, -110);
+	text('Producer', -150, -70);
+	text('Reference Curator', -150, 0);
+	text('Soundscape Creator', -120, 70);
+	text('Photographer', -150,100);
+	text('Graphic Designer', -150, 130);
 	// end of marker and resets from push();
 	pop();
 	// the main individual's name, responsible for each role, is listed one by one
 	push();
 	// changes size of uploaded image
+	//rotates in opposite direction
+	rotateY(-time2/5);
   scale(0.5);
-	image(font1,400, 0);
-	image(font2,400, 0);
-	image(font3,400, 0);
-	image(font4,400, 0);
-	image(font5,400, 0);
-	image(font6,400, 0);
-	image(font7,400, 0);
+	image(font1,500, -50);
+	image(font2,500, -28);
+	image(font3,500, 0);
+	image(font4,500, 0);
+	image(font5,500, 0);
+	image(font6,500, 0);
+	image(font7,500, 0);
 	pop();
 }
 
