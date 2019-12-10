@@ -87,7 +87,7 @@ function setup() {
 	angel4 = new Angel();
 	angel5 = new Angel();
 	angel6 = new Angel();
-  song.setVolume(12);
+  song.setVolume(9);
 	song.play();
 }
 
@@ -96,38 +96,39 @@ function draw() {
 time = millis();
 // stores amount of seconds passed, in variable
 time2 = time/1000;
+let s = second();
 // angel sees beam and goes toward it 
-if(time2 >= 1 && time2 <11){
+if(s >= 0 && s <15){
 push();
 onearth();
 pop();}
 //angel goes up the beam 
-else if(time2 >= 11 && time2< 19){
+else if(s >= 15 && s< 20){
 	push();
 	sky(); 
 pop();}
 //angel follows beam and ends up in space
-else if(time2 >= 19 && time2< 30){
+else if(s >= 20 && s< 30){
 	push();
 	inspace();
 pop();}
 //angel continues up the beam and find local resident
-else if(time2 >= 30 && time2< 39){	
+else if(s >= 30 && s< 39){	
 	push();
 	cameo();
 pop();}
 // angel is finally at the end of beam and discovers an interesting place
-else if(time2 >= 40 && time2 <60){
+else if(s >= 40 && s <60){
 	push();
 gates();	
 pop();}
 	// angel discovers and explores this new world
-else if(time2 >=60 && time2< 78){
+else if(s >=60 && s< 78){
 	push();
 	heaven();
 pop();}
 	// credit scene
-else if(time2 >= 78 && time2 < 89){
+else if(s >= 78 && s < 89){
 	push();
 	credit();
 pop();}
@@ -255,20 +256,22 @@ pop();
 }
 
 function gates(){
+	
 	push();
 	scale(0.5+ time2/20);
 	scale(0.85, 0.4);
 	image(gate, 0, 0);
 	pop();
+	
 	push();
 	scale(0.01 + time2/23);
-	//translate(-150, -150);
 	image(six,0,0);
 	pop();
+	
 	push();
 	rotateZ(time/450);
- // angel5.display2();
-		translate(-90,0);
+  angel5.display2();
+/*	translate(-90,0);
 	scale(0.45);
 	push();
 	rotate(-160);
@@ -278,8 +281,9 @@ function gates(){
 	rotate(85);
 	image(angel6,-400,700);
 	pop();
-	image(angel7,500,600);
+	image(angel7,500,600);*/
 	pop();
+	
 	push();
 	angel5.display();
 	angel5.update4();
@@ -395,7 +399,7 @@ class Angel{
 	display(){
 	image(angel, this.position.x, this.position.y);
 	}
-/*  display2(){
+  display2(){
 	//creates new set of angels used during gates function
 	translate(-90,0);
 	scale(0.45);
@@ -408,7 +412,7 @@ class Angel{
 	image(angel6,-400,700);
 	pop();
 	image(angel7,500,600);
-}*/
+}
 	display3(){
 		scale(0.45);
 		image(angel,this.position2.x ,this.position2.y);
