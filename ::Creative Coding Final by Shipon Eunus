@@ -76,7 +76,7 @@ beam = loadImage('BEAMOG.png');
 	font6 =loadImage('shiponeunusfonts6.png');
 	font7 =loadImage('shiponeunusfonts7.png');
 }
-// creates canvas, creates object, supposed to start playing song immediately when program starts
+// creates canvas, creates object, starts playing song immediately when program starts
 function setup() {
 	createCanvas(windowWidth,windowHeight, WEBGL);
 	background(0);
@@ -87,16 +87,18 @@ function setup() {
 	angel4 = new Angel();
 	angel5 = new Angel();
 	angel6 = new Angel();
-  song.setVolume(9);
-song.play();
+	song.setVolume(7);
+	song.play();
 }
 
 function draw() {
+
 // stores amount of milliseconds passed, in variable
 time = millis();
 // stores amount of seconds passed, in variable
 time2 = time/1000;
 let s = second();
+let m = minute();
 // angel sees beam and goes toward it 
 if(s >= 0 && s <15){
 push();
@@ -118,17 +120,17 @@ else if(s >= 32 && s< 41){
 	cameo();
 pop();}
 // angel is finally at the end of beam and discovers an interesting place
-else if(s >= 41 && s <60){
+else if(s >= 41 && s<59){
 	push();
 gates();	
 pop();}
 	// angel discovers and explores this new world
-else if(s >=60 && s< 78){
+else if(m >=1 && m< 1.25){
 	push();
 	heaven();
 pop();}
 	// credit scene
-else if(s >= 78 && s < 89){
+else if(s >= 1.25 && s < 1.5){
 	push();
 	credit();
 pop();}
@@ -180,11 +182,9 @@ angel2.update();
 }
 
 function inspace(){
-// image of space
 push();
 	image(spacegreenpurp, 0, 0 , windowWidth, windowHeight);
 	pop();
-	//image of beam
 push();
 	scale(0.12, 0.17);
 	image(beam,0, 0);
@@ -239,22 +239,18 @@ angel3.update();
 }
 
 function cameo(){
-//creates image of room
 push();
 	scale(1.15);
 	image(room,0,0);
 pop();
-//creates image of local resident
 	push();
 	scale(0.2);
 	image(me, -900,-50);
 pop();
-
 	push();
 	scale(0.14);
  image(beam,300,0);
 pop();
-// creates angel and movement
 	push();
 	angel4.display();
 	angel4.update();
@@ -262,10 +258,8 @@ pop();
 }
 
 function gates(){
-	//creates image of steps to heaven 
-	scale(0.9);
+	//scale(0.9);
 	push();
-	// slowly increases scale so it looks like its coming forward
 	scale(0.5+ time2/20);
 	scale(0.85, 0.4);
 	image(gate, 0, 0);
@@ -274,12 +268,10 @@ function gates(){
 	scale(0.5);
 	translate(-50, 0);
 	push();
-	// slowly increases scale so it looks like its coming forward
 	scale(0.01 + time2/23);
 	image(six,0,0);
 	pop();
 
-//creates images of angels that rotate around the center
 	/*	
 	push();
 	rotateZ(time/450);
@@ -302,7 +294,7 @@ function gates(){
 	angel5.update4();
 	pop(); */
 }
-// function to show angel going different environments
+
 function heaven(){
 push();
 scale(1.7);
@@ -324,7 +316,7 @@ push();
 angel6.display();
 	pop();
 }	
-// ending credits scene
+
 function credit(){
 	//aligns text
 	textAlign(RIGHT);
@@ -368,31 +360,24 @@ function credit(){
 
 // creates angel and movement 
 class Angel{
-  /creates variables for object
 	constructor(){
-	//sets original position
 	  this.position = createVector(30,windowHeight);
-	 //creates another position
 		this.position2 = createVector(30,-50);
-	//creates velocity vector
     this.velocity = createVector();
-    //creates acceleration vector
     this.acceleration = createVector();
-    // speed limit
     this.topspeed = 6;
 	}
-	// creates one type of movement by uodating position with veocity and acceleration and maintaining topspeed
 	update(){
-	  // destination vector
 		  var mouse = createVector(0,-1000);
-		  /creates acceleration between position and desired location
 			this.acceleration = p5.Vector.sub(mouse, this.position);
-	// updates vectors	
+		  //this.topspeed = 10;
+		//	this.acceleration.setMag(0.4); 
+		//	this.acceleration.mult(random(2));	
+		
 	this.velocity.add(this.acceleration);
 		this.velocity.limit(this.topspeed);
     this.position.add(this.velocity);	
 	}
-	//alternative movement
 	update2(){
 		var mouse = createVector(1000,0);
 		this.acceleration = p5.Vector.sub(mouse, this.position);
@@ -400,7 +385,6 @@ class Angel{
 		this.velocity.limit(this.topspeed);
     this.position.add(this.velocity);
 	}
-	//alternative movement
 		update3(){
 		this.topspeed = 8;
 		var mouse = createVector(windowWidth+300,-1000);
@@ -410,7 +394,6 @@ class Angel{
 		this.velocity.limit(this.topspeed);
     this.position2.add(this.velocity);
 	}
-	//alternative movement
 	update4(){
 		var mouse = createVector(0,0);
 	
@@ -419,11 +402,9 @@ class Angel{
 		this.velocity.limit(this.topspeed);
     this.position.add(this.velocity);
 	}	
-	//displays angel image
 	display(){
 	image(angel, this.position.x, this.position.y);
 	}
-	//creates 3 different angels that rotate around
   display2(){
 	//creates new set of angels used during gates function
 	translate(-90,0);
@@ -438,7 +419,6 @@ class Angel{
 	pop();
 	image(angel7,500,600);
 }
-//creates angel with alternate movement
 	display3(){
 		scale(0.45);
 		image(angel,this.position2.x ,this.position2.y);
