@@ -31,6 +31,7 @@ let offset = 0;
 let easing = 0.05;
 let midsky;
 let me;
+let font1, font2,font3,font4, font5, font6, font7;
 function preload() {
 spacegreenpurp = loadImage('spacegreenpurple.png');
 angel = loadImage('angelpinkbluegreenchrome.png');
@@ -65,6 +66,13 @@ mcq = loadImage('Poster7.png');
 	spiked = loadFont('KilnSansSpiked.otf');
 	helvetica = loadFont('Helvetica_CE_Bold_Oblique.otf');
 	me = loadImage('mebapekawskapitalnikeyeezy.png');
+	font1 =loadImage('shiponeunusfonts1.png');
+	font2 =loadImage('shiponeunusfonts2.png');
+	font3 =loadImage('shiponeunusfonts3.png');
+	font4 =loadImage('shiponeunusfonts4.png');
+	font5 =loadImage('shiponeunusfonts5.png');
+	font6 =loadImage('shiponeunusfonts6.png');
+	font7 =loadImage('shiponeunusfonts7.png');
 }
 
 function setup() {
@@ -159,7 +167,16 @@ function credit(){
 	text('Photographer', -200,100);
 	text('Graphic Designer', -200, 130);
 	pop();
-	
+	push();
+scale(0.5);
+	image(font1,400, 0);
+	image(font2,400, 0);
+	image(font3,400, 0);
+	image(font4,400, 0);
+	image(font5,400, 0);
+	image(font6,400, 0);
+	image(font7,400, 0);
+	pop();
 }
 function sky(){
 image(midsky, 0,0);
