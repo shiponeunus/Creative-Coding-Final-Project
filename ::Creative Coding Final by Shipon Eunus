@@ -1,4 +1,5 @@
 //Creative Coding Final by Shipon Eunus
+// declaring variables
 let spacegreenpurple; 
 let angel;
 let beam;
@@ -32,13 +33,15 @@ let easing = 0.05;
 let midsky;
 let me;
 let font1, font2,font3,font4, font5, font6, font7;
+//preloads images, font, sound
 function preload() {
-spacegreenpurp = loadImage('spacegreenpurple.png');
+song = loadSound('NeonBlack.mp3');
+	spacegreenpurp = loadImage('spacegreenpurple.png');
 angel = loadImage('angelpinkbluegreenchrome.png');
 beam = loadImage('BEAMOG.png');
 	beam2 = loadImage('beamtower2.png');
 	four = loadImage('yinyangyen.png');
-mcq = loadImage('Poster7.png');
+  mcq = loadImage('Poster7.png');
 	surroundvision = loadImage('surroundvsionV1.png');
 	six =loadImage('7paradise.png');
 	seven = loadImage('7concreteredwirfeame.png');
@@ -47,7 +50,6 @@ mcq = loadImage('Poster7.png');
 	one = loadImage('Building1.png');
 	eight = loadImage('eightbuilding.png');
 	angel2 = loadImage('angelpinkbluegreenchromeleft.png');
-	song = loadSound('NeonBlack.mp3');
 	gate = loadImage('heavengate.jpg');
 	angel3 = loadImage('angelpink_bluechromev13d.png');
 	angel6 = loadImage('angel6.png');
@@ -74,91 +76,76 @@ mcq = loadImage('Poster7.png');
 	font6 =loadImage('shiponeunusfonts6.png');
 	font7 =loadImage('shiponeunusfonts7.png');
 }
-
+// creates canvas, creates object, starts playing song immediately when program starts
 function setup() {
 	createCanvas(windowWidth,windowHeight, WEBGL);
 	background(0);
 	imageMode(CENTER);
   angel1 = new Angel();
-  song.setVolume(9);
+  song.setVolume(12);
 	song.play();
 }
 
 function draw() {
-//need to set up timing and figure out how to get one function to end when the next starts
-//initial view of beam; need to do photography 
+// stores amount of milliseconds passed, in variable
 time = millis();
+// stores amount of seconds passed, in variable
 time2 = time/1000;
-//onearth();
-//	sky();
-//	inspace();
-//	cameo();
-//gates();	
-//	heaven();
+// angel sees beam and goes toward it 
+if(time2 >= 0 && time2 <11){
+push();
+onearth();
+pop();}
+//angel goes up the beam 
+else if(time2 >= 11 && time2< 19){
+	push();
+	sky(); 
+pop();}
+//angel follows beam and ends up in space
+else if(time2 >= 19 && time2< 30){
+	push();
+	inspace();
+pop();}
+//angel continues up the beam and find local resident
+else if(time2 >= 30 && time2< 39){	
+	push();
+	cameo();
+pop();}
+// angel is finally at the end of beam and discovers an interesting place
+else if(time2 >= 40 && time2 <60){
+	push();
+gates();	
+pop();}
+	// angel discovers and explores this new world
+else if(time2 >=60 && time2< 78){
+	push();
+	heaven();
+pop();}
+	// credit scene
+else if(time2 >= 78 && time2 < 89){
+	push();
 	credit();
-
-	
-/*if (time2 >0 && time2 <= 3){
-onearth();  }
-//on earth following beam while ominous part play; need to photography
-
-else if(time2 >3 && time2 <= 14){
-
+pop();}
 }
-else if(time2 >14 && time2 <= 36){
-inspace();
-}
-else if(time2 >36 && time2 <= 41){
-cameo();
-}
-else if(time2 >41 && time2 <= 45){
-gates();
-}
-else if(time2 >41 && time2 <= 45){
 
-}
-else if(time2 >45 && time2 <= 88){
-
-}	
-//ominous to ending angel goes up
-//inspace();}
-
-//end of ominous part and it go on the beam transition
-//transition going up stairway at gates; need to finish drawing steps
-//need to picture of self in room and goes up picked up on angel
-//else if(time2 >20 && time2 <= 30){
-//cameo();
-//}
-//else if(time2 >30 && time2 <= 40){
-// when choir sing,interactive angels start rotating with user interaction*/
-//	gates();
-//}
-//when choir going skitz gate appears and it gets bigger; need to write this part of code
-	/* 	push();
-	rotateY(time/700);
-	textFont(spiked);
-	textSize(144);
-  text('Shipon Eunus', 10, 30);
-	pop();
-	push();
-	rotateX(time/ 600);
-	textFont(helvetica);
-	textSize(144);
-  text('C(V)L', 10, 30);
-	pop();*/
-// then go through different artworks make them hav depth; need to write this part of code
-	
-}
 function credit(){
+	//aligns text
 	textAlign(RIGHT);
+	// creates a marker
 	push();
+	//rotates on y axis to form a more generative design
 	rotateY(time2/20);
+	// random values are assigned to variables
 	let r = random(0,255);
 	let g = random(0,255);
 	let b = random(0,255);
+	// random values are passed to the fill RGB values
 	fill(r,g,b);
+	// sets font
 	textFont(helvetica);
+	//sets text size
 	textSize(24);
+	// text of different roles
   text('Director', -200, -130);
 	text('Screenwriter', -200, -100);
 	text('Producer', -200, -70);
@@ -166,9 +153,12 @@ function credit(){
 	text('Soundscape Designer', -200, 70);
 	text('Photographer', -200,100);
 	text('Graphic Designer', -200, 130);
+	// end of marker and resets from push();
 	pop();
+	// the main individual's name, responsible for each role, is listed one by one
 	push();
-scale(0.5);
+	// changes size of uploaded image
+  scale(0.5);
 	image(font1,400, 0);
 	image(font2,400, 0);
 	image(font3,400, 0);
@@ -178,34 +168,49 @@ scale(0.5);
 	image(font7,400, 0);
 	pop();
 }
+
 function sky(){
-image(midsky, 0,0);
+// loads image of sky 
+	image(midsky, 0,0);
 push();
+	// loads image of beam
 	scale(0.25, 0.17);
 	image(beam,0, 0);
 pop();
+push();
+// uses created object and methods to show image and move image
 angel1.display();
 angel1.update();
+	pop();
 }
 function onearth(){
 push();
+// image of personal photography from canon camera	
 scale(0.26, 0.2);
 image(hudson1, 0,0);	
 pop();
 push();
+// creates another image of personal photography but with 50% opacity and an offset movement
+//variable that stores random value from the window width size
 let movement = random(-windowWidth, windowWidth);
+// variables update the offset distance
 let dx = movement - windowWidth / 2 - offset
 offset += dx * easing;
+// creates 50% opacity with no change in color
 tint(255, 100);
 scale(0.36, 0.2);
+// creates image that moves from side to side
 image(hudson1, offset, 0)	
 pop();
 	push();
 scale(0.5,0.7);
 image(beam2,1280, -261);
 	pop();
+	// uses created object and methods to show image and move image
+push();
 	angel1.display3();
 angel1.update3();
+	pop();
 }
 function heaven(){
 push();
