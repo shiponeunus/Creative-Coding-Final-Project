@@ -1,5 +1,7 @@
 //Creative Coding Final by Shipon Eunus
 // declaring variables
+
+// not finished need to sync with track and add more design elements to established functions, functions workon their own
 let spacegreenpurple; 
 let angel;
 let beam;
