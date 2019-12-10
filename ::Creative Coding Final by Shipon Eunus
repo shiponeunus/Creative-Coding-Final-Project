@@ -86,8 +86,8 @@ time2 = time/1000;
 //	inspace();
 //	cameo();
 //gates();	
-	heaven();
-//	credit();
+//	heaven();
+	credit();
 
 	
 /*if (time2 >0 && time2 <= 3){
@@ -142,33 +142,24 @@ else if(time2 >45 && time2 <= 88){
 	
 }
 function credit(){
+	textAlign(RIGHT);
 	push();
-	rotateY(time2/15);
+	rotateY(time2/20);
+	let r = random(0,255);
+	let g = random(0,255);
+	let b = random(0,255);
+	fill(r,g,b);
 	textFont(helvetica);
-	textSize(36);
-  text('Director', -400, -100);
-	text('Screenwriter', -400, -50);
-	text('Producer', -400, 0);
-	text('Reference Curator', -400, 50);
-	text('Soundscape Designer', -400, 100);
-	text('Photographer', -400,150);
-	text('Graphic Designer', -400, 200);
+	textSize(24);
+  text('Director', -200, -130);
+	text('Screenwriter', -200, -100);
+	text('Producer', -200, -70);
+	text('Reference Curator', -200, 0);
+	text('Soundscape Designer', -200, 70);
+	text('Photographer', -200,100);
+	text('Graphic Designer', -200, 130);
 	pop();
 	
-	/*push();
-	rotateY(time/1300);
-	textFont(spiked);
-	textSize(108);
-  text('Shipon Eunus', 10, 30);
-	pop();
-	
-	push();
-	textFont(spiked);
-	fill( 205,63,3);
-	textAlign(CENTER, TOP);
-	textSize(116);
-  text('Shipon Eunus', 10, 30);
-	pop();*/
 }
 function sky(){
 image(midsky, 0,0);
