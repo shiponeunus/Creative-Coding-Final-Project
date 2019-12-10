@@ -82,6 +82,11 @@ function setup() {
 	background(0);
 	imageMode(CENTER);
   angel1 = new Angel();
+	angel2 = new Angel();
+	angel3 = new Angel();
+	angel4 = new Angel();
+	angel5 = new Angel();
+	angel6 = new Angel();
   song.setVolume(12);
 	song.play();
 }
@@ -92,7 +97,7 @@ time = millis();
 // stores amount of seconds passed, in variable
 time2 = time/1000;
 // angel sees beam and goes toward it 
-if(time2 >= 0 && time2 <11){
+if(time2 >= 1 && time2 <11){
 push();
 onearth();
 pop();}
@@ -128,61 +133,6 @@ else if(time2 >= 78 && time2 < 89){
 pop();}
 }
 
-function credit(){
-	//aligns text
-	textAlign(RIGHT);
-	// creates a marker
-	push();
-	//rotates on y axis to form a more generative design
-	rotateY(time2/20);
-	// random values are assigned to variables
-	let r = random(0,255);
-	let g = random(0,255);
-	let b = random(0,255);
-	// random values are passed to the fill RGB values
-	fill(r,g,b);
-	// sets font
-	textFont(helvetica);
-	//sets text size
-	textSize(24);
-	// text of different roles
-  text('Director', -200, -130);
-	text('Screenwriter', -200, -100);
-	text('Producer', -200, -70);
-	text('Reference Curator', -200, 0);
-	text('Soundscape Designer', -200, 70);
-	text('Photographer', -200,100);
-	text('Graphic Designer', -200, 130);
-	// end of marker and resets from push();
-	pop();
-	// the main individual's name, responsible for each role, is listed one by one
-	push();
-	// changes size of uploaded image
-  scale(0.5);
-	image(font1,400, 0);
-	image(font2,400, 0);
-	image(font3,400, 0);
-	image(font4,400, 0);
-	image(font5,400, 0);
-	image(font6,400, 0);
-	image(font7,400, 0);
-	pop();
-}
-
-function sky(){
-// loads image of sky 
-	image(midsky, 0,0);
-push();
-	// loads image of beam
-	scale(0.25, 0.17);
-	image(beam,0, 0);
-pop();
-push();
-// uses created object and methods to show image and move image
-angel1.display();
-angel1.update();
-	pop();
-}
 function onearth(){
 push();
 // image of personal photography from canon camera	
@@ -212,69 +162,26 @@ push();
 angel1.update3();
 	pop();
 }
-function heaven(){
-push();
-scale(1.7);
-image(natureog,0,0);
-pop();
-push();
-scale(2.2,1.5);
-image(mountain,0,0); 
-pop();
-	push();
-scale(1.8);
-image(heatmap, 0,0);
-pop();
-	push();
-scale(2.5, 1.5);
-image(beach, 0,0);
-pop();
-angel1.display();
-}	
 
-
-function cameo(){
+function sky(){
+// loads image of sky 
+	image(midsky, 0,0);
 push();
-	scale(1.15);
-	image(room,0,0);
+	// loads image of beam
+	scale(0.25, 0.17);
+	image(beam,0, 0);
 pop();
-	push();
-	scale(0.2);
-	image(me, -900,-50);
-pop();
-	push();
-	scale(0.14);
- image(beam,300,0);
-pop();
-	push();
-	angel1.display();
-	angel1.update();
-pop();
+push();
+// uses created object and methods to show image and move image
+angel2.display();
+angel2.update();
+	pop();
 }
-function gates(){
-	push();
-	scale(0.5+time2/20);
-	scale(0.85, 0.4);
-	image(gate, 0, 0);
-	pop();
-
-	push();
-	scale(0.01 + time2/23);
-	//translate(-150, -150);
-	image(six,0,0);
-	pop();
-	push();
-	rotateZ(time/450);
-  angel1.display2();
-	pop();
-	angel1.display();
-	angel1.update4();
-}
-
 
 function inspace(){
-//time = millis();
+push();
 	image(spacegreenpurp, 0, 0 , windowWidth, windowHeight);
+	pop();
 push();
 	scale(0.12, 0.17);
 	image(beam,0, 0);
@@ -323,8 +230,122 @@ push();
 //object and methods used to move angel upwards
 	push();
 scale(0.45);
-angel1.display();
-angel1.update();
+angel3.display();
+angel3.update();
+	pop();
+}
+
+function cameo(){
+push();
+	scale(1.15);
+	image(room,0,0);
+pop();
+	push();
+	scale(0.2);
+	image(me, -900,-50);
+pop();
+	push();
+	scale(0.14);
+ image(beam,300,0);
+pop();
+	push();
+	angel4.display();
+	angel4.update();
+pop();
+}
+
+function gates(){
+	push();
+	scale(0.5+ time2/20);
+	scale(0.85, 0.4);
+	image(gate, 0, 0);
+	pop();
+	push();
+	scale(0.01 + time2/23);
+	//translate(-150, -150);
+	image(six,0,0);
+	pop();
+	push();
+	rotateZ(time/450);
+ // angel5.display2();
+		translate(-90,0);
+	scale(0.45);
+	push();
+	rotate(-160);
+	image(angel3,1000 ,-100);
+	pop();
+	push();
+	rotate(85);
+	image(angel6,-400,700);
+	pop();
+	image(angel7,500,600);
+	pop();
+	push();
+	angel5.display();
+	angel5.update4();
+	pop();
+}
+
+function heaven(){
+push();
+scale(1.7);
+image(natureog,0,0);
+pop();
+push();
+scale(2.2,1.5);
+image(mountain,0,0); 
+pop();
+	push();
+scale(1.8);
+image(heatmap, 0,0);
+pop();
+	push();
+scale(2.5, 1.5);
+image(beach, 0,0);
+pop();
+push();
+angel6.display();
+	pop();
+}	
+
+function credit(){
+	//aligns text
+	textAlign(RIGHT);
+	// creates a marker
+	push();
+	//rotates on y axis to form a more generative design
+	rotateY(time2/20);
+	// random values are assigned to variables
+	let r = random(0,255);
+	let g = random(0,255);
+	let b = random(0,255);
+	// random values are passed to the fill RGB values
+	fill(r,g,b);
+	// sets font
+	textFont(helvetica);
+	//sets text size
+	textSize(24);
+	// text of different roles
+  text('Director', -200, -130);
+	text('Screenwriter', -200, -100);
+	text('Producer', -200, -70);
+	text('Reference Curator', -200, 0);
+	text('Soundscape Designer', -200, 70);
+	text('Photographer', -200,100);
+	text('Graphic Designer', -200, 130);
+	// end of marker and resets from push();
+	pop();
+	// the main individual's name, responsible for each role, is listed one by one
+	push();
+	// changes size of uploaded image
+  scale(0.5);
+	image(font1,400, 0);
+	image(font2,400, 0);
+	image(font3,400, 0);
+	image(font4,400, 0);
+	image(font5,400, 0);
+	image(font6,400, 0);
+	image(font7,400, 0);
 	pop();
 }
 
@@ -374,7 +395,7 @@ class Angel{
 	display(){
 	image(angel, this.position.x, this.position.y);
 	}
-  display2(){
+/*  display2(){
 	//creates new set of angels used during gates function
 	translate(-90,0);
 	scale(0.45);
@@ -387,7 +408,7 @@ class Angel{
 	image(angel6,-400,700);
 	pop();
 	image(angel7,500,600);
-}
+}*/
 	display3(){
 		scale(0.45);
 		image(angel,this.position2.x ,this.position2.y);
