@@ -302,7 +302,7 @@ function gates(){
 	angel5.update4();
 	pop(); */
 }
-
+// function to show angel going different environments
 function heaven(){
 push();
 scale(1.7);
