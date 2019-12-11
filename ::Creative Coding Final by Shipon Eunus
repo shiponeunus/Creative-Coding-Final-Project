@@ -1,7 +1,5 @@
 //Creative Coding Final by Shipon Eunus
 // declaring variables
-
-// not finished need to sync with track and add more design elements to established functions, functions workon their own
 let spacegreenpurple; 
 let angel;
 let beam;
@@ -337,7 +335,7 @@ function credit(){
 	// creates a marker
 	push();
 	//rotates on y axis to form a more generative design
-	rotateY(time2/20);
+	rotateY(time2/18);
 	// random values are assigned to variables
 	let r = random(0,255);
 	let g = random(0,255);
@@ -349,29 +347,34 @@ function credit(){
 	//sets text size
 	textSize(36);
 	// text of different roles
-  text('Director', -150, -160);
-	text('Screenwriter', -150, -110);
-	text('Producer', -150, -70);
-	text('Reference Curator', -150, 0);
-	text('Soundscape Creator', -120, 70);
+  text('Director', -150, -120);
+	textSize(30);
+	text('Screenwriter', -150, -90);
+	textSize(33);
+	text('Producer', -150, -30);
+	textSize(30);
+	text('Reference Curator', -150,10);
+	text('Soundscape Creator', -120, 50);
+	textSize(36);
 	text('Photographer', -150,100);
-	text('Graphic Designer', -150, 130);
+	textSize(24);
+	text('Graphic Designer', -150, 140);
 	// end of marker and resets from push();
 	pop();
 	// the main individual's name, responsible for each role, is listed one by one
+	scale(0.5);
 	push();
 	// changes size of uploaded image
-	//rotates in opposite direction
-	rotateY(-time2/5);
-  scale(0.5);
+	rotateY(-time2/15);
+  
 	image(font1,500, -50);
-	image(font2,500, -28);
-	image(font3,500, 0);
-	image(font4,500, 0);
+	image(font2,500, -20);
+	image(font3,500, 40);
 	image(font5,500, 0);
-	image(font6,500, 0);
-	image(font7,500, 0);
-	pop();
+	image(font4,500, 180);
+	image(font6,500, 200);
+	image(font7,500, 220); 
+pop();
 }
 
 // creates angel and movement 
