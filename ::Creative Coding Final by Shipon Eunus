@@ -89,6 +89,7 @@ function setup() {
 	angel6 = new Angel();
 	song.setVolume(7);
 	song.play();
+	let d = song.duration();
 }
 
 function draw() {
@@ -107,8 +108,8 @@ let m = minute();
  //gates();
  //heaven(); 
 
- credit();
-/*	
+ //credit();
+	
 // angel sees beam and goes toward it 
 if(s >= 0 && s <15){
 push();
@@ -130,21 +131,21 @@ else if(s >= 32 && s< 41){
 	cameo();
 pop();}
 // angel is finally at the end of beam and discovers an interesting place
-else if(s >= 41 && s<59){
+else if(s >= 41 && s<60){
 	push();
 gates();	
 pop();}
 	// angel discovers and explores this new world
-else if(m >=0 && m< 2.25){
+else if(s >= 60 && s < d -18){
 	push();
 	heaven();
 pop();}
 	// credit scene
-else if(m >= 2.25 && m < 2.5){
+else if(s >= d-18 && s < d ){
 	push();
 	credit();
 pop();}
-*/
+
 }
 
 function onearth(){
