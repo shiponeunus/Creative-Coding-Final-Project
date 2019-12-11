@@ -95,6 +95,7 @@ function setup() {
 }
 
 function draw() {
+// creates variable that stores the time of audio into sound
 let d = song.duration();
 // stores amount of milliseconds passed, in variable
 time = millis();
@@ -110,7 +111,7 @@ let m = minute();
 // gates();
 // heaven(); 
 // credit();
-
+//goes through functions based on passage of time and correlation with audio
 if(time2 >= 1 && time2 <10){
 push();
 onearth();
