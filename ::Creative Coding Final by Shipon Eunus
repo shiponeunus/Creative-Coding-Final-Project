@@ -1,6 +1,5 @@
 //Creative Coding Final by Shipon Eunus
 // declaring variables
-// declaring variables
 let spacegreenpurple; 
 let angel;
 let beam;
@@ -36,6 +35,8 @@ let me;
 let playing;
 let font1, font2,font3,font4, font5, font6, font7;
 let count = 1;
+let title;
+let logofour;
 //preloads images, font, sound
 function preload() {
 song = loadSound('NeonBlack.mp3');
@@ -78,6 +79,8 @@ beam = loadImage('BEAMOG.png');
 	font5 =loadImage('shiponeunusfonts5.png');
 	font6 =loadImage('shiponeunusfonts6.png');
 	font7 =loadImage('shiponeunusfonts7.png');
+	title = loadImage('neonblacktitle.png');
+	logofour = loadImage('CVLLOGOcolor3.png');
 }
 // creates canvas, creates object, starts playing song immediately when program starts
 function setup() {
@@ -95,7 +98,7 @@ function setup() {
 }
 
 function draw() {
-// creates variable that stores the time of audio into sound
+// creates variable that stores the time of audio into seconds
 let d = song.duration();
 // stores amount of milliseconds passed, in variable
 time = millis();
@@ -112,6 +115,7 @@ let m = minute();
 // heaven(); 
 // credit();
 //goes through functions based on passage of time and correlation with audio
+
 if(time2 >= 1 && time2 <10){
 push();
 onearth();
@@ -146,7 +150,11 @@ pop();}
 else if(time2 >= d- 24 && time2 < d ){
 	push();
 	credit();
-pop();}
+	image(title, 0,-600);
+	scale(0.2);
+	image(logofour,windowWidth+4500,windowHeight+1600);
+
+pop();} 
 }
 
 function onearth(){
@@ -272,13 +280,13 @@ pop();
 }
 
 function gates(){
-	//scale(0.9);
+	scale(0.5);
 	push();
 	scale(0.8+ time2/20);
 	scale(0.85, 0.4);
 	image(gate, 0, 0);
 	pop();
-
+push();
 	scale(0.7);
 	translate(-50, 0);
 	push();
@@ -289,6 +297,7 @@ function gates(){
 	angel5.display();
 	angel5.update4();
 	pop(); 
+pop();
 }
 
 function heaven(){
