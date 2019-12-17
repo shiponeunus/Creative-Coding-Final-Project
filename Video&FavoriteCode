@@ -1,0 +1,92 @@
+Link to video of code working: https://drive.google.com/file/d/1vvzaHIUvMOpAhOkTMZzxqVg_97onOHjL/view?usp=sharing
+Favorite code:
+
+function inspace(){
+push();
+	image(spacegreenpurp, 0, 0 , windowWidth, windowHeight);
+	pop();
+push();
+	scale(0.12, 0.17);
+	image(beam,0, 0);
+pop();
+//creation of planets and their motions
+	push();
+	scale(0.2);
+image(floatingrock, 0,320);
+	pop();
+	push();
+	scale(0.45);
+	image(building2, 350, -190);
+	pop();
+push();
+	scale(0.1);
+	image(building3, -1380, -860);
+pop();
+push();
+scale(0.13);
+image(five, -30,-800);
+pop();
+	push();
+  rotateX(time/550);
+	rotateZ(time/550);
+	texture(portal);
+	 translate(220, -100, -100); //rotates translations
+	sphere(100);
+  pop();
+push();
+	rotateZ(time/550);
+	scale(0.15);
+image(seven, 1500, -1300);
+	pop();
+	push();
+	rotateY(time/400);
+rotateX(time/900);
+scale(0.2);
+image(one, 2000, -1000);	
+pop();
+push();
+	rotateX(time/800);
+	rotateZ(time/450);
+	scale(0.16);
+  image(eight,0,-1000);
+	pop();
+//object and methods used to move angel upwards
+	push();
+scale(0.45);
+angel3.display();
+angel3.update();
+	pop();
+}
+
+
+function heaven(){
+
+
+	
+push();
+let y = random( 15, 30);	
+rotateZ(time2/y);	
+scale(1.8);
+image(heatmap, 0,0);
+pop(); 
+
+push();
+let o = random( 900, 1800);
+rotateZ(-time/o);	
+scale(2.2,1.5);
+image(mountain,150,0); 
+pop();
+	
+push();
+let u = random( 2000, 3000);
+rotateZ(time/u);
+//	r = r = random( 200, 5000);
+scale(1.7);
+image(natureog,0,0);
+pop();
+	
+push();
+image(angel, -300, 0);
+pop();
+
+}	
